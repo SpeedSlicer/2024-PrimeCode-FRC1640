@@ -6,6 +6,7 @@ import frc.robot.arm.ArmSubsystem;
 
 public class ArmController extends Command{
     ArmSubsystem armSubsystem;
+    double rotationSpeed = 1;
     XboxController controller;
     public ArmController(ArmSubsystem armSubsystemi, XboxController xboxC){
         armSubsystem = armSubsystemi;
@@ -30,7 +31,14 @@ public class ArmController extends Command{
             }
         }
         */
-        armSubsystem.rotateArm(controller.getLeftTriggerAxis() - controller.getRightTriggerAxis(), -50, -2135);
+        if(controller.getXButton()){
+            rotationSpeed = 0.5;
+        }
+        else{
+            rotationSpeed = 1;
+        }
+
+        armSubsystem.rotateArm((controller.getLeftTriggerAxis() - controller.getRightTriggerAxis()) * rotationSpeed, -50, -2135);
         
         
     }

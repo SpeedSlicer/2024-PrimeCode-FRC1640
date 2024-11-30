@@ -15,7 +15,7 @@ import frc.robot.intake.IntakeSubsystem;
 public class IntakeControl extends Command {
     IntakeSubsystem intakeSubsystem;
     XboxController controller;
-    
+    public double rotationSpeed = 0.8;
     public IntakeControl(IntakeSubsystem intakeSubsystem1, XboxController xboxC){
         intakeSubsystem = intakeSubsystem1;
         controller = xboxC;
@@ -28,12 +28,16 @@ public class IntakeControl extends Command {
 
     @Override
     public void execute() {
-        if(controller.getLeftStickButtonPressed()){
-            intakeSubsystem.rotateIntake(0.8);
+        if(controller.getAButton()){
+            intakeSubsystem.rotateIntake(rotationSpeed);
         }
-        else if(controller.getLeftStickButtonReleased()){
+        else if(controller.getBButton()){
+            intakeSubsystem.rotateIntake(-rotationSpeed);            
+        }
+        else{
             intakeSubsystem.rotateIntake(0);
         }
+        
     }
 
     @Override
@@ -41,7 +45,7 @@ public class IntakeControl extends Command {
         intakeSubsystem.rotateIntake(0);
 
     }
-
+    
     @Override
     public boolean isFinished() {
         return false;
