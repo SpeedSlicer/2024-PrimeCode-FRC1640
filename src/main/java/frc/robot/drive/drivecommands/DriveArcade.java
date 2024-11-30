@@ -69,7 +69,6 @@ public class DriveArcade extends Command {
                 System.out.println("Ok wtf how did you get ANYTHING but True or False from a boolean");
             }
         }
-
     }
 
     @Override
