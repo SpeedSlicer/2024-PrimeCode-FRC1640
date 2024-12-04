@@ -22,6 +22,7 @@ public class DriveArcade extends Command {
 
     @Override
     public void execute() {
+        
         double baseSpeed = 0.7;
         double rotateSpeed = 0.3;
         double rotateNum = 0;
@@ -69,6 +70,8 @@ public class DriveArcade extends Command {
                 System.out.println("Ok wtf how did you get ANYTHING but True or False from a boolean");
             }
         }
+
+        
     }
 
     @Override
