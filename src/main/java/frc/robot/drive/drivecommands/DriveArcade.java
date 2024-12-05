@@ -59,19 +59,7 @@ public class DriveArcade extends Command {
         else{
             System.out.println("WHAT THE- HOW DID YOU EVEN");
         }
-        if(controller.getYButtonPressed()){
-            if(tankDrive == true){
-                tankDrive = false;
-            }
-            else if(tankDrive == false){
-                tankDrive = true;
-            }
-            else{
-                System.out.println("Ok wtf how did you get ANYTHING but True or False from a boolean");
-            }
-        }
-
-        
+             
     }
 
     @Override

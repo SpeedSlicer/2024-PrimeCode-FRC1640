@@ -37,9 +37,37 @@ public class ArmController extends Command{
         else{
             rotationSpeed = 1;
         }
+       
+        if(controller.getPOV() == 0){
 
-        armSubsystem.rotateArm((controller.getLeftTriggerAxis() - controller.getRightTriggerAxis()) * rotationSpeed, -50, -2135);
-        
+        }
+        else if(controller.getPOV() == 90){
+            armSubsystem.setPosition(-500);
+        }
+        else if(controller.getPOV() == 180){
+            armSubsystem.setPosition(-750);
+
+        }
+          
+        if(controller.getPOV() == 0){
+            System.out.println("UP");
+            armSubsystem.setPosition(-1000);    
+        }
+        else if (controller.getPOV() == 90){
+            System.out.println("RIGHT");
+            armSubsystem.setPosition(-500);
+        }
+        else if (controller.getPOV() == 180){
+            System.out.println("DOWN");
+            armSubsystem.setPosition(-750);
+        }
+        else if (controller.getPOV() == 270){
+            System.out.println("LEFT");
+            armSubsystem.setPosition(-150);
+        }
+        else{
+            armSubsystem.rotateArm((controller.getLeftTriggerAxis() - controller.getRightTriggerAxis()) * rotationSpeed, -50, -2135);
+        }
         
     }
 
