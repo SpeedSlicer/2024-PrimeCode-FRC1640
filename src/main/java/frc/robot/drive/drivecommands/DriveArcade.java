@@ -22,7 +22,14 @@ public class DriveArcade extends Command {
 
     @Override
     public void execute() {
-        
+        if(controller.getYButtonPressed()){
+            if(tankDrive == false){
+                tankDrive = true;
+            }
+            else{
+                tankDrive = false;
+            }
+        }
         double baseSpeed = 0.7;
         double rotateSpeed = 0.3;
         double rotateNum = 0;

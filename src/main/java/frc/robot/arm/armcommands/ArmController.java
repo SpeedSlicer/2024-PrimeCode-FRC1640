@@ -8,10 +8,10 @@ public class ArmController extends Command{
     ArmSubsystem armSubsystem;
     double rotationSpeed = 1;
     XboxController controller;
-    public ArmController(ArmSubsystem armSubsystemi, XboxController xboxC){
-        armSubsystem = armSubsystemi;
-        controller = xboxC;
-        addRequirements(armSubsystem);
+    public ArmController(ArmSubsystem armSubsystem, XboxController controller){
+        this.armSubsystem = armSubsystem;
+        this.controller = controller;
+        addRequirements(this.armSubsystem);
     }
     
     @Override
@@ -38,16 +38,7 @@ public class ArmController extends Command{
             rotationSpeed = 1;
         }
        
-        if(controller.getPOV() == 0){
-
-        }
-        else if(controller.getPOV() == 90){
-            armSubsystem.setPosition(-500);
-        }
-        else if(controller.getPOV() == 180){
-            armSubsystem.setPosition(-750);
-
-        }
+        
           
         if(controller.getPOV() == 0){
             System.out.println("UP");
@@ -66,7 +57,7 @@ public class ArmController extends Command{
             armSubsystem.setPosition(-150);
         }
         else{
-            armSubsystem.rotateArm((controller.getLeftTriggerAxis() - controller.getRightTriggerAxis()) * rotationSpeed, -50, -2135);
+            armSubsystem.rotateArm((controller.getLeftTriggerAxis() - controller.getRightTriggerAxis()) * rotationSpeed, -50, -2000);
         }
         
     }
